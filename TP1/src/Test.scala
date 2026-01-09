@@ -16,7 +16,7 @@ object Test {
         assert(Rational(3, 1) == Rational(3), "Equality with auxiliary constructor")
 
         // --- Test 3: Utilisation des constantes du compagnon ---
-        assert(Rational(0, 1) == Rational.ZERO, "Companion object constant ZERO")
+        assert(Rational(0) == Rational.ZERO, "Companion object constant ZERO")
 
         // --- Test 4: Addition ---
         val r1_2 = Rational(1, 2)
@@ -28,6 +28,9 @@ object Test {
         val r2_3 = Rational(2, 3)
         assert((r1_2 * r2_3) == Rational(1, 3), "Multiplication with simplification")
         assert((r1_3 * Rational.ZERO) == Rational.ZERO, "Multiplication by zero")
+
+        // --- Test 6: Arithmétique Mixte (Rational et Int) ---
+        assert(Rational(1, 3) + 2 == Rational(7, 3), "Rational + Int")
 
         println("All tests passed successfully!")
     }

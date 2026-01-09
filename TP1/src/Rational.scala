@@ -32,8 +32,10 @@ case class Rational(n: Int, d: Int) {
   def *(that: Rational): Rational =
     Rational(n * that.n, d * that.d)
 
+  def +(i: Int): Rational =
+    Rational(n + i * d, d)
+
   override def toString: String = {
-    // La simplification se fait maintenant via la méthode 'apply' du compagnon
     val simplified = Rational.simplify(this)
     if (simplified.d == 1) s"${simplified.n}"
     else s"${simplified.n}/${simplified.d}"
@@ -42,8 +44,6 @@ case class Rational(n: Int, d: Int) {
 
 // Objet compagnon pour les static et factories
 object Rational {
-
-  // Constantes utiles
   val ZERO = new Rational(0, 1)
   val ONE = new Rational(1, 1)
 
